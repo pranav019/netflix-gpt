@@ -63,7 +63,6 @@ const Login = () => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
-        navigate("/browse");
         // ...
       })
       .catch((error) => {
@@ -116,7 +115,6 @@ const Login = () => {
                 photoURL: photoURL,
               })
             );
-            navigate("/browse");
             console.log("Updated user: " + user);
           })
           .catch((error) => {
@@ -142,7 +140,10 @@ const Login = () => {
       <div>
         <Header />
         <div className="absolute h-screen">
-          <img src="https://assets.nflxext.com/ffe/siteui/vlv3/a99688ca-33c3-4099-9baa-07a2e2acb398/ca15fd28-b624-4852-8bfe-9cdd5c88475d/IN-en-20240520-popsignuptwoweeks-perspective_alpha_website_medium.jpg"></img>
+          <img
+            src="https://assets.nflxext.com/ffe/siteui/vlv3/a99688ca-33c3-4099-9baa-07a2e2acb398/ca15fd28-b624-4852-8bfe-9cdd5c88475d/IN-en-20240520-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
+            alt="img"
+          ></img>
         </div>
 
         <form

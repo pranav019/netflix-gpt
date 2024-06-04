@@ -7,6 +7,8 @@
 - routing
 - form validations
 - useRef hook
+- bug fix of the display profile picture and name when user logs in by updating store while auth change
+- bug fix of user can't jump to browse page without logging in
 
 # features that we gonna build
 
