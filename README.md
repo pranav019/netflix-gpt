@@ -9,6 +9,8 @@
 - useRef hook
 - bug fix of the display profile picture and name when user logs in by updating store while auth change
 - bug fix of user can't jump to browse page without logging in
+- unsubscribed the component (onAuthChanged(login)) when teh component is no longer needed
+- registered a TMDB account and got access token and get data of now playing movies list
 
 # features that we gonna build
 

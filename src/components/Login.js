@@ -10,6 +10,8 @@ import {
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import Loader from "./Loader";
+import { user_logo } from "../utils/constants";
+import { netflix_bg_img } from "../utils/constants";
 // store
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
@@ -46,8 +48,11 @@ const Login = () => {
 
   // User login && login data form
   const handleButtonClick = () => {
-    const message = checkLoginData(email.current.value, password.current.value);
-    // console.log(email.current.value);
+    const message = checkLoginData(
+      email.current.value.trim(),
+      password.current.value
+    );
+    // console.log(email.current.value.trim());
     // console.log(password.current.value);
     setErrorMessage(message);
     if (message) return;
@@ -56,7 +61,7 @@ const Login = () => {
 
     signInWithEmailAndPassword(
       auth,
-      email.current.value,
+      email.current.value.trim(),
       password.current.value
     )
       .then((userCredential) => {
@@ -76,11 +81,11 @@ const Login = () => {
   // user signup && signup data
   const handleSignUpClick = () => {
     const message = checkSignUpData(
-      email.current.value,
+      email.current.value.trim(),
       password.current.value,
       fullName.current.value
     );
-    // console.log(email.current.value);
+    // console.log(email.current.value.trim());
     // console.log(password.current.value);
     // console.log(fullName.current.value);
 
@@ -91,7 +96,7 @@ const Login = () => {
     // Auth API Call on firebase
     createUserWithEmailAndPassword(
       auth,
-      email.current.value,
+      email.current.value.trim(),
       password.current.value
     )
       .then((userCredential) => {
@@ -100,8 +105,8 @@ const Login = () => {
         console.log(user);
         updateProfile(user, {
           displayName: fullName.current.value,
-          photoURL:
-            "https://occ-0-6247-2164.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABdpkabKqQAxyWzo6QW_ZnPz1IZLqlmNfK-t4L1VIeV1DY00JhLo_LMVFp936keDxj-V5UELAVJrU--iUUY2MaDxQSSO-0qw.png?r=e6e",
+          // here we are in js that's why we didn't wrap it inside {}, if in HTML then we need to wrap it inside the {} to make it jsx
+          photoURL: user_logo,
         })
           .then(() => {
             // at first the values don't get store(bug) so to update the store we used this here
@@ -140,10 +145,7 @@ const Login = () => {
       <div>
         <Header />
         <div className="absolute h-screen">
-          <img
-            src="https://assets.nflxext.com/ffe/siteui/vlv3/a99688ca-33c3-4099-9baa-07a2e2acb398/ca15fd28-b624-4852-8bfe-9cdd5c88475d/IN-en-20240520-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
-            alt="img"
-          ></img>
+          <img src={netflix_bg_img} alt="img"></img>
         </div>
 
         <form
