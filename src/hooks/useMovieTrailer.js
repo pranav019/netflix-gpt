@@ -22,7 +22,7 @@ const useMovieTrailer = (movieID) => {
     const trailer =
       filteredTrailers?.length > 0 ? filteredTrailers[0] : jsonData?.results[0];
 
-    console.log(filteredTrailers);
+    // console.log(filteredTrailers);
     dispatch(addTrailerVideos(trailer));
   };
 

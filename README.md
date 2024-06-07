@@ -11,6 +11,11 @@
 - bug fix of user can't jump to browse page without logging in
 - unsubscribed the component (onAuthChanged(login)) when teh component is no longer needed
 - registered a TMDB account and got access token and get data of now playing movies list
+- created a custom hook now playing movies and updated the store with movies data
+- Planning for the main container and secondary video
+- fetch data for the trailer video
+- embedded the youtube video and made it auto play with &mute=1
+- added tailwind css to make it look awesome
 
 # features that we gonna build
 

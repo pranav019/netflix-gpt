@@ -67,7 +67,7 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
+        // console.log(user);
         // ...
       })
       .catch((error) => {
@@ -102,7 +102,7 @@ const Login = () => {
       .then((userCredential) => {
         // Signed up
         const user = userCredential.user;
-        console.log(user);
+        // console.log(user);
         updateProfile(user, {
           displayName: fullName.current.value,
           // here we are in js that's why we didn't wrap it inside {}, if in HTML then we need to wrap it inside the {} to make it jsx
@@ -120,7 +120,7 @@ const Login = () => {
                 photoURL: photoURL,
               })
             );
-            console.log("Updated user: " + user);
+            // console.log("Updated user: " + user);
           })
           .catch((error) => {
             setErrorMessage(error.message);
