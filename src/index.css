@@ -13,3 +13,72 @@
     transform: rotate(360deg);
   }
 }
+
+/* ::-webkit-scrollbar: Targets the entire scrollbar.
+
+::-webkit-scrollbar-track: Targets the scrollbar track (the background of the scrollbar).
+
+::-webkit-scrollbar-thumb: Targets the draggable part of the scrollbar.
+
+scrollbar-width and scrollbar-color: CSS properties for styling scrollbars in Firefox.
+
+scrollbar-width: thin;: Makes the scrollbar thinner.
+scrollbar-color: red #f1f1f1;: Sets the scrollbar 
+thumb color to red and the track color to light grey. */
+
+/* Custom scrollbar styles */
+.scrollbar {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: red black; /* Firefox */
+}
+
+/* Chrome, Safari, and Edge */
+.scrollbar::-webkit-scrollbar {
+  width: 12px;
+  height: 12px; /* For horizontal scrollbars */
+  padding-top: 20px !important;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: black !important;
+
+  border-radius: 10px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: red;
+
+  border-radius: 50px !important;
+}
+.scrollbar-x::-webkit-scrollbar-thumb {
+  border-radius: 50px !important;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+/* Hide scrollbar arrows for WebKit-based browsers (Chrome, Safari) */
+
+.scrollbar-x::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.scrollbar::-webkit-scrollbar-button:increment,
+.scrollbar::-webkit-scrollbar-button:decrement {
+  display: none;
+}
+
+/* table::-webkit-scrollbar {
+  height: 10px;
+}
+
+table::-webkit-scrollbar-thumb {
+  background: #00A73C;
+  border-radius: 5px;
+}
+
+table::-webkit-scrollbar-track {
+  border-radius: 5px;
+  margin-top: 1rem !important;
+} */
