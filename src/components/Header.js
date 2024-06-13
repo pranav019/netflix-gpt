@@ -6,6 +6,9 @@ import Loader from "./Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { logo } from "../utils/constants";
+import { toggleGptSerachView } from "../utils/gptSlice";
+import { supported_languages } from "../utils/constants";
+import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
   const [loading, setLoading] = useState(false);
@@ -14,6 +17,7 @@ const Header = () => {
 
   // store varibales
   const dispatch = useDispatch();
+  const gptSearch = useSelector((store) => store?.gpt?.showGptSearches);
 
   const handleSignOut = () => {
     setLoading(true);
@@ -59,13 +63,45 @@ const Header = () => {
       // I want to unsubscribe when the component unmounts
       return () => unsubscribe();
     });
-  }, []);
+  }, [dispatch, navigate]);
+
+  const handleGptSearchClick = () => {
+    // toggle my GptSearch
+    dispatch(toggleGptSerachView());
+  };
+
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
   return (
     <div>
       <div className="absolute w-full ps-8 py-3 bg-gradient-to-b from-black z-10 flex justify-between">
         <img className="w-44" src={logo} alt="logo"></img>
         {user && (
           <div className="flex p-2">
+            {gptSearch && (
+              <div className="flex content-end flex-wrap mb-2 ">
+                <select
+                  className="p-2 px-4 rounded-lg text-white font-bold h-max mr-5 bg-gray-900"
+                  onChange={handleLanguageChange}
+                >
+                  {supported_languages.map((lang) => (
+                    <option key={lang.identifier} value={lang.identifier}>
+                      {lang.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+
+            <div className="flex content-end flex-wrap mb-2 ">
+              <button
+                className="p-2 px-4 rounded-lg text-black font-bold h-max mr-5 bg-white "
+                onClick={handleGptSearchClick}
+              >
+                {gptSearch ? "Go Back" : "GPT Search"}
+              </button>
+            </div>
             <img
               className="w-12 h-12 mt-2"
               alt="userIcon"

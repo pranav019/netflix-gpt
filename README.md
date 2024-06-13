@@ -16,6 +16,7 @@
 - fetch data for the trailer video
 - embedded the youtube video and made it auto play with &mute=1
 - added tailwind css to make it look awesome
+-
 
 # features that we gonna build
 
