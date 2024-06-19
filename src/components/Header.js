@@ -6,7 +6,7 @@ import Loader from "./Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { logo } from "../utils/constants";
-import { toggleGptSerachView } from "../utils/gptSlice";
+import { toggleGptSerachView, clearGptResults } from "../utils/gptSlice";
 import { supported_languages } from "../utils/constants";
 import { changeLanguage } from "../utils/configSlice";
 
@@ -67,6 +67,9 @@ const Header = () => {
 
   const handleGptSearchClick = () => {
     // toggle my GptSearch
+    if (gptSearch) {
+      dispatch(clearGptResults());
+    }
     dispatch(toggleGptSerachView());
   };
 
