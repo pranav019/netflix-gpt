@@ -23,3 +23,5 @@ export const supported_languages = [
   { identifier: "hindi", name: "Hindi" },
   { identifier: "spanish", name: "Spanish" },
 ];
+
+export const openAI_key = "avbcd";
