@@ -5,7 +5,7 @@ const MovieList = ({ title, movies = [] }) => {
   // console.log(movies);
   return (
     <div className="pt-5 pl-5 scrollbar-parent">
-      <h1 className="text-2xl text-white mb-1">{title}</h1>
+      <h1 className="text-2xl text-white mt-4 mb-4">{title}</h1>
       <div className="flex overflow-x-scroll  scrollbar">
         <div className="flex">
           {movies?.length > 0 &&
