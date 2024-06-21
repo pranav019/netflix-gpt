@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import useMovieTrailer from "../hooks/useMovieTrailer";
+import Loader from "./Loader";
 
 const VideoBackground = ({ movieID }) => {
   // custom hook for getting movie trailer
@@ -9,6 +10,11 @@ const VideoBackground = ({ movieID }) => {
   // getting data from the store
   const backgroundTrailer = useSelector((store) => store.movies?.trailerVideo);
 
+  console.log(backgroundTrailer?.key);
+
+  if (!backgroundTrailer === null) {
+    <Loader />;
+  }
   return (
     <div>
       <iframe

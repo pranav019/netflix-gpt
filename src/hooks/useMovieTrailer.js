@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { api_options } from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addTrailerVideos } from "../utils/movieSlice";
 
 const useMovieTrailer = (movieID) => {
   const dispatch = useDispatch();
+  const trailerVideo = useSelector((store) => store?.movies?.trailerVideo);
 
   // fetch my trailer here
   const getMovieVideos = async () => {
@@ -28,7 +29,9 @@ const useMovieTrailer = (movieID) => {
 
   // using useEffect to call the functions
   useEffect(() => {
-    getMovieVideos();
+    if (!trailerVideo) {
+      getMovieVideos();
+    }
   }, []);
 };
 

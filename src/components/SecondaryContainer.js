@@ -10,7 +10,7 @@ const SecondaryContainer = () => {
     <div className="bg-black">
       {/*  */}
       {/* // this is the another box inside that secondary container box and we are moving this box above making it "out of the box" */}
-      <div className="-mt-60 relative z-20">
+      <div className="mt-0 md:-mt-28	lg:-mt-60 relative z-20">
         <MovieList title={"Now Playing"} movies={movies?.nowPlayingMovies} />
         <MovieList title={"Top Rated Movies"} movies={movies?.topRatedMovies} />
         <MovieList title={"Popular"} movies={movies?.popularMovies} />

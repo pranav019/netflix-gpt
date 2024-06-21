@@ -52,3 +52,25 @@ thumb color to red and the track color to light grey. */
 .scrollbar-parent .scrollbar::-webkit-scrollbar-button {
   display: none;
 }
+
+/* RESPONSIVENESS */
+@media (max-width: 640px) {
+  .mobile-flex-between {
+    justify-content: space-between;
+  }
+  .user-phone-img {
+    display: none !important;
+  }
+
+  .user-phone-sign-out {
+    padding: 0.5rem !important;
+    color: rgb(0 0 0 / var(--tw-text-opacity, 1)) !important;
+    font-weight: 700 !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1)) !important;
+    border-radius: 0.5rem !important;
+    height: max-content !important;
+    margin-right: 1.25rem !important;
+  }
+}
